@@ -1,0 +1,30 @@
+{
+  "name": "svg-logo-maker",
+  "version": "1.0.0",
+  "description": "Create svg log using CLI",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DavidPeguero/SVG-Logo-Maker.git"
+  },
+  "keywords": [
+    "svg",
+    "inquirer",
+    "jest",
+    "javascript"
+  ],
+  "author": "David Pegueor",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DavidPeguero/SVG-Logo-Maker/issues"
+  },
+  "homepage": "https://github.com/DavidPeguero/SVG-Logo-Maker#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4",
+    "jest": "^24.9.0"
+  }
+}
