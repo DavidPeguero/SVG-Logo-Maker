@@ -1,5 +1,6 @@
-//Import inquirer 
+//Import inquirer and validating functions
 const inquirer = require("inquirer");
+const {validateText, validateColor} = require('./lib/validateInputs')
 
 //Set variables need
 let text;
@@ -27,7 +28,13 @@ async function getText(){
         type : 'input',
         message:'Enter desired text (up to three characters)',
     })
-    text = data.text
+    if(validateText(data.text)){
+        text = data.text;
+    }
+    else{
+        console.log('Text is too long');
+        await getText();
+    }
 }
 
 //Async function to get color
@@ -38,7 +45,14 @@ async function getColor(){
         type : 'input',
         message:'Enter desired Color ',
     })
-    color = data.color;
+    //Check if good input
+    if(validateColor(data.color.toLowerCase())){
+        color = data.color.toLowerCase();
+    }
+    else{
+        console.log('Not a valid color');
+        await getColor();
+    }
 }
 
 //Async function to get shape
