@@ -13,16 +13,13 @@ const questions = [
         type : 'input',
         message:'Enter desired color (name or hexadecimal)',
     },
-    {
-        name : 'shape', 
-        type : 'input',
-        message:'Enter desired shape (circle, shape, or triangle)',
-    }
+    
 ]
 
 //Begin the prompts
 
 
+//Async function to get the text inside the SVG
 async function getText(){
     let data = await inquirer.
     prompt({
@@ -33,6 +30,7 @@ async function getText(){
     text = data.text
 }
 
+//Async function to get color
 async function getColor(){
     let data = await inquirer.
     prompt({
@@ -40,16 +38,30 @@ async function getColor(){
         type : 'input',
         message:'Enter desired Color ',
     })
-    color = data.color
+    color = data.color;
+}
+
+//Async function to get shape
+async function getShape(){
+    let data = await inquirer.
+    prompt({
+        name : 'shape', 
+        type : 'list',
+        message:'Enter desired shape (circle, square, or triangle)',
+        choices : ['circle', 'square', 'triangle'],
+    })
+    shape = data.shape;
 }
 
 
-
+//Async function that gets all the info from the user
 async function init(){
     await getText();
     await getColor();
+    await getShape();
     console.log(text);
     console.log(color);
+    console.log(shape);
 }
 
 init()
