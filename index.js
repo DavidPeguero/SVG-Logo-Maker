@@ -1,6 +1,9 @@
-//Import inquirer and validating functions
+//Import required modules
 const inquirer = require("inquirer");
 const {validateText, validateColor} = require('./lib/validateInputs')
+const fs = require('fs');
+const {Circle, Square, Triangle} = require('./lib/shapes')''
+
 
 //Set variables need
 let text;

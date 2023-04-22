@@ -7,7 +7,7 @@ describe('Square', () =>{
         it('should pass if it fills the shape with blue', () => {
             const shape = new Square();
             shape.setColor('blue');
-            expect(shape.render()).toEqual(`<rect width='300' height='200' fill='blue'/>`)
+            expect(shape.render()).toEqual(`<rect width='200' height='200' fill='blue'/>`)
         })
     })
 })
