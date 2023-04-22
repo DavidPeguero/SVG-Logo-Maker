@@ -3,7 +3,7 @@ const inquirer = require("inquirer");
 
 //Set variables need
 let text;
-let input;
+let color;
 let shape;
 
 //Questions to ask through inquirer
@@ -23,17 +23,33 @@ const questions = [
 //Begin the prompts
 
 
-function getText(){
-    inquirer.
+async function getText(){
+    let data = await inquirer.
     prompt({
         name : 'text', 
         type : 'input',
         message:'Enter desired text (up to three characters)',
-    }).
-    then((data) => {
-        text = data.text;
-        console.log(text)
-    });
+    })
+    text = data.text
 }
 
-getText();
+async function getColor(){
+    let data = await inquirer.
+    prompt({
+        name : 'color', 
+        type : 'input',
+        message:'Enter desired Color ',
+    })
+    color = data.color
+}
+
+
+
+async function init(){
+    await getText();
+    await getColor();
+    console.log(text);
+    console.log(color);
+}
+
+init()
