@@ -35,4 +35,13 @@ describe('Text', () =>{
         })
     })
 
+    describe('Render checks if text is appropriate', () => {
+        it('should pass if it throws the appropriate error', () => {
+            const shape = 'Square';
+            const text = new Text(shape);
+            text.setText('TEST')
+            expect(text.text).toEqual('TEST');
+        })
+    })
+
 })
