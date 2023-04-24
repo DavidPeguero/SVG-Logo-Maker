@@ -1,12 +1,30 @@
 //Import text
 const Text = require('../lib/text')
+const {Circle, Triangle, Square} = require('../lib/shapes')
 
 describe('Text', () =>{
-    describe('Set Text', () => {
+    describe('Render Text for Circle', () => {
         it('should pass if it fills the shape with blue', () => {
-            const shape = new Circle();
-            shape.setColor('blue');
-            expect(shape.render()).toEqual(`<circle cx='150' cy='100' r='80' fill='blue'/>`)
+            const shape = 'Circle';
+            const text = new Text(shape);
+            expect(text.render()).toEqual(`<text x="150" y="120" font-size="60" text-anchor="middle" fill="white">${this.text}</text>`)
         })
     })
+
+    describe('Render Text for Triangle', () => {
+        it('should pass if it fills the shape with blue', () => {
+            const shape = 'Triangle';
+            const text = new Text(shape);
+            expect(text.render()).toEqual(`<text x="150" y="150" font-size="60" text-anchor="middle" fill="white">${this.text}</text>`)
+        })
+    })
+
+    describe('Render Text for Square', () => {
+        it('should pass if it fills the shape with blue', () => {
+            const shape = 'Square';
+            const text = new Text(shape);
+            expect(text.render()).toEqual(`<text x="100" y="120" font-size="60" text-anchor="middle" fill="white">${this.text}</text>`)
+        })
+    })
+
 })

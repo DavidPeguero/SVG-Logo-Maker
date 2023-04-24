@@ -1,7 +1,19 @@
 //Imports
-const { Triangle, Square, Circle } = require('../lib/shapes');
+const { Shape, Triangle, Square, Circle } = require('../lib/shapes');
+
+
 
 //Shape testing suite
+describe('Shape', () =>{
+    describe('Render Shape', () => {
+        it('should pass if it throws the correct errror', () => {
+            const shape = new Shape();
+            expect(shape.render()).toEqual(new Error('Each shape should override this function'))
+        })
+    })
+})
+
+
 describe('Square', () =>{
     describe('Set Color', () => {
         it('should pass if it fills the shape with blue', () => {
