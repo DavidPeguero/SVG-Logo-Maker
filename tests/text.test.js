@@ -27,4 +27,12 @@ describe('Text', () =>{
         })
     })
 
+    describe('Render for anything else', () => {
+        it('should pass if it throws the appropriate error', () => {
+            const shape = 'Pentagon';
+            const text = new Text(shape);
+            expect(() => text.render()).toThrow(new Error('Not a valid shape'))
+        })
+    })
+
 })

@@ -7,8 +7,9 @@ const { Shape, Triangle, Square, Circle } = require('../lib/shapes');
 describe('Shape', () =>{
     describe('Render Shape', () => {
         it('should pass if it throws the correct errror', () => {
-            const shape = new Shape();
-            expect(shape.render()).toEqual(new Error('Each shape should override this function'))
+            const shape =  new Shape();
+            const err = new Error('Each shape should override this function');
+            expect(() => shape.render()).toThrowError(err);
         })
     })
 })
