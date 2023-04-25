@@ -5,6 +5,7 @@ const fs = require('fs');
 const { Circle, Square, Triangle } = require('./lib/shapes')
 const Text = require('./lib/text');
 const svgGenerator = require('./lib/svgGenerator');
+const { error } = require("console");
 
 //Set variables need
 let text;
@@ -21,10 +22,12 @@ async function getText() {
             type: 'input',
             message: 'Enter desired text (up to three characters)',
         })
-    if (validateText(data.text)) {
+
+    try {
+        validateText(data.text);
         text = data.text;
-    }
-    else {
+    } 
+    catch (error) {
         console.log('Text is too long');
         await getText();
     }
@@ -35,36 +38,37 @@ async function getTextColor() {
     let data = await inquirer.
         prompt({
             name: 'textColor',
-            type: 'list',
-            message: 'Enter desired shape (circle, square, or triangle)',
-            choices: ['circle', 'square', 'triangle'],
+            type: 'input',
+            message: 'Enter desired Text Color (name or hexcode)',
         })
-
-    //Check if good input
-    if (validateColor(data.textColor.toLowerCase())) {
+    
+    //Try catch for errors
+    try {
+        validateColor(data.textColor.toLowerCase());
         textColor = data.textColor.toLowerCase();
     }
-    else {
-        console.log('Not a valid color');
-        await getColor();
+    catch (error) {
+        console.log('Not a valid color input');
+        await getTextColor();
     }
 }
 
 //Async function to get color
-async function getColor() {
+async function getShapeColor() {
     let data = await inquirer.
         prompt({
             name: 'color',
             type: 'input',
-            message: 'Enter desired Text Color',
+            message: 'Enter desired Shape Color (name or hexcode)',
         })
     //Check if good input
-    if (validateColor(data.color.toLowerCase())) {
+    try {
+        validateColor(data.color.toLowerCase());
         color = data.color.toLowerCase();
     }
-    else {
-        console.log('Not a valid color');
-        await getColor();
+    catch (error) {
+        console.log('Not a valid color input');
+        await getShapeColor();
     }
 }
 
@@ -85,8 +89,8 @@ async function getShape() {
 async function init() {
     await getText();
     await getTextColor();
-    await getColor();
     await getShape();
+    await getShapeColor();
     console.log(text);
     console.log(color);
     console.log(shape);
@@ -108,6 +112,7 @@ async function init() {
     //Create text class and set text class
     svgText = new Text(shape);
     svgText.setText(text);
+    svgText.setColor(textColor);
     const svg = new svgGenerator(svgBase, svgText);
     fs.writeFile('test.svg', svg.render(), (err) => {
         err ? console.error('Ooops') : console.log('Success!');
