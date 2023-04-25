@@ -111,11 +111,11 @@ async function init() {
     svgText.setText(text);
     svgText.setColor(textColor);
     const svg = new svgGenerator(svgBase, svgText);
-    fs.writeFile('test.svg', svg.render(), (err) => {
-        err ? console.error('Ooops') : console.log('Success!');
+    fs.writeFile('logo.svg', svg.render(), (err) => {
+        err ? console.error('Ooops') : console.log("Generated logo.svg");
     })
 
-    console.log("Generated logo.svg");
+    
 
 }
 

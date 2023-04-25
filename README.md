@@ -3,6 +3,8 @@
   [![](https://img.shields.io/badge/license-MIT-blue)](https://www.mend.io/resources/blog/top-open-source-licenses-explained/#MIT_License)
   ## Description
   Create SVG logos from the prompts by the user. Can make Triangle, Circle, and Square shapes. Can take up to 3 letters in the logo. It can also fill it with a color name (supported by svg) or a hexcode.
+
+  [Video Demonstration](https://drive.google.com/file/d/15zNHDhGbAaw5RfZBMj6appzo8TS9cwEW/view?usp=sharing)
   ## Table of Contents
   1. [Installation](#installation)
   2. [Usage](#usage)
