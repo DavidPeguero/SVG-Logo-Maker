@@ -8,6 +8,7 @@ const svgGenerator = require('./lib/svgGenerator');
 
 //Set variables need
 let text;
+let textColor;
 let color;
 let shape;
 
@@ -29,13 +30,33 @@ async function getText() {
     }
 }
 
+//Async function to get shape
+async function getTextColor() {
+    let data = await inquirer.
+        prompt({
+            name: 'textColor',
+            type: 'list',
+            message: 'Enter desired shape (circle, square, or triangle)',
+            choices: ['circle', 'square', 'triangle'],
+        })
+
+    //Check if good input
+    if (validateColor(data.textColor.toLowerCase())) {
+        textColor = data.textColor.toLowerCase();
+    }
+    else {
+        console.log('Not a valid color');
+        await getColor();
+    }
+}
+
 //Async function to get color
 async function getColor() {
     let data = await inquirer.
         prompt({
             name: 'color',
             type: 'input',
-            message: 'Enter desired Color ',
+            message: 'Enter desired Text Color',
         })
     //Check if good input
     if (validateColor(data.color.toLowerCase())) {
@@ -63,6 +84,7 @@ async function getShape() {
 //Async function that gets all the info from the user
 async function init() {
     await getText();
+    await getTextColor();
     await getColor();
     await getShape();
     console.log(text);
