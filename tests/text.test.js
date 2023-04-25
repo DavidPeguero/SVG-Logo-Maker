@@ -7,7 +7,9 @@ describe('Text', () =>{
         it('should pass if it fills the shape with blue', () => {
             const shape = 'Circle';
             const text = new Text(shape);
-            expect(text.render()).toEqual(`<text x="150" y="120" font-size="60" text-anchor="middle" fill="white">${this.text}</text>`)
+            text.setColor('blue');
+            text.setText('svg');
+            expect(text.render()).toEqual(`<text x="150" y="120" font-size="60" text-anchor="middle" fill="blue">svg</text>`)
         })
     })
 
@@ -15,7 +17,9 @@ describe('Text', () =>{
         it('should pass if it fills the shape with blue', () => {
             const shape = 'Triangle';
             const text = new Text(shape);
-            expect(text.render()).toEqual(`<text x="150" y="150" font-size="60" text-anchor="middle" fill="white">${this.text}</text>`)
+            text.setColor('blue');
+            text.setText('svg');
+            expect(text.render()).toEqual(`<text x="150" y="150" font-size="60" text-anchor="middle" fill="blue">svg</text>`)
         })
     })
 
@@ -23,7 +27,9 @@ describe('Text', () =>{
         it('should pass if it fills the shape with blue', () => {
             const shape = 'Square';
             const text = new Text(shape);
-            expect(text.render()).toEqual(`<text x="100" y="120" font-size="60" text-anchor="middle" fill="white">${this.text}</text>`)
+            text.setColor('blue');
+            text.setText('svg');
+            expect(text.render()).toEqual(`<text x="100" y="120" font-size="60" text-anchor="middle" fill="blue">svg</text>`)
         })
     })
 
