@@ -91,9 +91,6 @@ async function init() {
     await getTextColor();
     await getShape();
     await getShapeColor();
-    console.log(text);
-    console.log(color);
-    console.log(shape);
     let svgBase;
     let svgText;
     //Create shape class and setColor 
@@ -118,6 +115,8 @@ async function init() {
         err ? console.error('Ooops') : console.log('Success!');
     })
 
+    console.log("Generated logo.svg");
+
 }
 
-init()
+init();
